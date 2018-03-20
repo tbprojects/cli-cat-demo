@@ -1,4 +1,4 @@
 export interface Cat {
-  id: number;
+  id?: number;
   src: string;
 }

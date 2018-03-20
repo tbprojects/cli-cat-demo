@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Cat } from '../cat';
 
 @Component({
@@ -6,12 +6,14 @@ import { Cat } from '../cat';
   templateUrl: './cat.component.html',
   styleUrls: ['./cat.component.css']
 })
-export class CatComponent implements OnInit {
+export class CatComponent {
   @Input() cat: Cat;
   @Input() index: number;
+  @Output() catRemoved = new EventEmitter();
+
   constructor() { }
 
-  ngOnInit() {
+  remove() {
+    this.catRemoved.emit(this.cat);
   }
-
 }

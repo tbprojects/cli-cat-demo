@@ -9,6 +9,14 @@ export class CatService {
   constructor(private http: HttpClient) { }
 
   getCats(): Observable<Cat[]> {
-    return this.http.get('/api/cats');
+    return this.http.get<Cat[]>('/api/cats');
+  }
+
+  addCat(cat: Cat): Observable<Cat> {
+    return this.http.post<Cat>('/api/cats', cat);
+  }
+
+  removeCat(id: number): Observable<Cat> {
+    return this.http.delete<Cat>('/api/cats/' + id);
   }
 }

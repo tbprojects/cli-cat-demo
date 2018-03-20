@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+}
+
+:host > * {
+  display: block;
+  width: 300px;
+  text-align: center;
+  margin: 10px;
+}

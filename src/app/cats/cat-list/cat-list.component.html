@@ -1,1 +1,11 @@
-<app-cat *ngFor="let cat of cats; index as i" [cat]="cat" [index]="i + 1"></app-cat>
+<app-cat *ngFor="let cat of cats; index as i"
+         [cat]="cat"
+         [index]="i + 1"
+         (catRemoved)="removeCat($event)"></app-cat>
+
+<form #form="ngForm" (ngSubmit)="addCat(form.value); form.reset()">
+  <h2>Add your kitty</h2>
+  <label for="cat-src">Cat image:</label>
+  <input id="cat-src" type="text" placeholder="http://..." name="src" ngModel required pattern="^http[s]{0,1}:\/\/.+">
+  <button type="submit" [disabled]="form.invalid">Add</button>
+</form>
