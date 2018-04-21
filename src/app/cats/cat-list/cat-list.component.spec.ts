@@ -14,21 +14,23 @@ import { CatService } from '../cat.service';
 })
 export class CatMockComponent {
   @Input() cat: Cat;
-  @Input() index: number;
   @Output() catRemoved = new EventEmitter();
 }
 
 export class CatMockService {
   getCats(): Observable<Cat[]> {
-    return of([{id: 1, src: ''}, {id: 1, src: ''}]);
+    return of([
+      {id: 1, src: 'kitty-1.jpg', name: 'kitty-1'},
+      {id: 2, src: 'kitty-2.jpg', name: 'kitty-2'}
+    ]);
   }
 
   addCat(cat: Cat): Observable<Cat> {
-    return of({id: 1, src: ''});
+    return of({id: 1, src: 'kitty-1.jpg', name: 'kitty-1'});
   }
 
   removeCat(id: number): Observable<Cat> {
-    return of({id: 1, src: ''});
+    return of({id: 1, src: 'kitty-1.jpg', name: 'kitty-1'});
   }
 }
 
@@ -62,7 +64,8 @@ describe('CatListComponent', () => {
 
   it('should render form headline', () => {
     const formHeadline = fixture.debugElement.query(By.css('h2'));
-    expect(formHeadline.nativeElement.textContent).toEqual('Add your kitty');
+    expect(formHeadline.nativeElement.textContent)
+      .toEqual('Add your kitty');
   });
 
   describe('when cat is added', () => {
@@ -71,11 +74,18 @@ describe('CatListComponent', () => {
     beforeEach(() => {
       catService = TestBed.get(CatService);
       spyOn(catService, 'addCat').and.callThrough();
+
+      const srcInput = fixture.debugElement.query(By.css('input[name="src"]'));
+      srcInput.nativeElement.value = 'http://localhost/kitten.png';
+      srcInput.nativeElement.dispatchEvent(new Event('input'));
+
+      const nameInput = fixture.debugElement.query(By.css('input[name="name"]'));
+      nameInput.nativeElement.value = 'mruczek';
+      nameInput.nativeElement.dispatchEvent(new Event('input'));
+
       const button = fixture.debugElement.query(By.css('form button'));
-      const input = fixture.debugElement.query(By.css('input[name="src"]'));
-      input.nativeElement.value = 'http://localhost/kitten.png';
-      input.nativeElement.dispatchEvent(new Event('input'));
       button.nativeElement.click();
+
       fixture.detectChanges();
     });
 
@@ -85,7 +95,8 @@ describe('CatListComponent', () => {
     });
 
     it('should call addCat on CatService', () => {
-      expect(catService.addCat).toHaveBeenCalledWith({src: 'http://localhost/kitten.png'});
+      expect(catService.addCat)
+        .toHaveBeenCalledWith({src: 'http://localhost/kitten.png', name: 'mruczek'});
     });
   });
 

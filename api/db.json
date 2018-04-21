@@ -2,43 +2,28 @@
   "cats": [
     {
       "id": 1,
-      "src": "https://i.ytimg.com/vi/hEfC4Hv2aLE/maxresdefault.jpg"
+      "src": "https://i.ytimg.com/vi/hEfC4Hv2aLE/maxresdefault.jpg",
+      "name": "Sunshine"
     },
     {
       "id": 2,
-      "src": "https://i.ytimg.com/vi/uBKi7tXlYiY/maxresdefault.jpg"
+      "src": "https://i.ytimg.com/vi/uBKi7tXlYiY/maxresdefault.jpg",
+      "name": "Astrocat"
     },
     {
       "id": 3,
-      "src": "https://i.ytimg.com/vi/j2l1zts8ObI/maxresdefault.jpg"
+      "src": "https://i.ytimg.com/vi/j2l1zts8ObI/maxresdefault.jpg",
+      "name": "Kittyboard"
     },
     {
       "id": 4,
-      "src": "https://i.ytimg.com/vi/taoFOAjKxxI/maxresdefault.jpg"
+      "src": "https://i.ytimg.com/vi/taoFOAjKxxI/maxresdefault.jpg",
+      "name": "Fluffy"
     },
     {
       "id": 5,
-      "src": "https://i.ytimg.com/vi/nyzCeHAoXIs/maxresdefault.jpg"
-    },
-    {
-      "id": 6,
-      "src": "https://i.ytimg.com/vi/9sxMr4IdXaU/maxresdefault.jpg"
-    },
-    {
-      "id": 7,
-      "src": "https://i.ytimg.com/vi/HdAkkp9Ue_U/maxresdefault.jpg"
-    },
-    {
-      "id": 8,
-      "src": "https://i.ytimg.com/vi/Y7MEAePLl-k/maxresdefault.jpg"
-    },
-    {
-      "id": 9,
-      "src": "https://i.ytimg.com/vi/UXwqcT14Epw/maxresdefault.jpg"
-    },
-    {
-      "id": 10,
-      "src": "https://i.ytimg.com/vi/a3XoDdYcLIw/maxresdefault.jpg"
+      "src": "https://i.ytimg.com/vi/nyzCeHAoXIs/maxresdefault.jpg",
+      "name": "Rainbow"
     }
   ]
 }
